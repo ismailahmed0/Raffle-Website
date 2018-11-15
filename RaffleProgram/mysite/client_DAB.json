@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "online-store-216918",
+  "private_key_id": "944359bd299b3be7315798069db38f3a0d3b51e4",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDIEzWvYnzQf3pn\nkoLCPj/BUm0d4TNfGE8ANXMq5vKTijHhR+UQ4EhfBDb8H8vJOItYNL3H9yaXMEpE\nJa2Xd9LzrxkiaKEx5+pmhFkz6pRFjEfkU4CgtXfILP64Y3JVWv07w9SNMiWssSpf\n5QFYVl8owZF1b2GnCpxWN9ctAX02YijDPmaXUiP7bHzu/B3l54NZEeCQdsfwa0s9\nnjIH25jKFVa3ktMm0K8vD8refH7eLwjI//Fb4odiOFp6P7FGbQUYO6nFcBOVS5oN\ntHQ1fQ15VYy/aizChrKJgeXjk9lRpaYmBUlgZQ/QBqarC5A8ZhwjKTtRgENXb+R3\nHBFaiL5jAgMBAAECggEAGhUDAR+eNNIBg4ICgM77obicl/IVL9br6ZOONXAQ/HHe\nCcfFEVujo5tZjamZd9xisfeCLBDIm5oEfHjK9f19Zx4S8Tzhkq9wi7fCJzXz6VMd\nxiKqmIi/mj1fYWs5au4nKATh7xwz9BzOcNzaPYlY82e0jjIccVm9QrIZ33ibuZx8\nAGvMihVnAKLpbznHVoAYSdCWuUnxoFtlXQjPo5P/keFQqiCNc4K8hLD3Kro4HmJb\n3xRz64fPtdwZlM1VHnAXRFhEmDF5AbTaWTuP4QiuDxc2tyM76j+8plg08Spof1+K\nIB7Z2ZzPX0nUyadwYffyxRLPM/AlZLe2PwApLuw8kQKBgQD4QiD5/WozcWxNNbnx\ndNhMUKPJ6a3NxSAN6UWlhhlLAbOpvrnP5H0w+xoqOidLaYqXI64K1vdMQPDi3a1y\n+/hBy/uVbi4gdv5urCy2rBFOFo98o/W32pYqu4CmsGgGrLJqN1fMqFyLuprFkStZ\ni89NHPDl2yDCzA85cFFFVoLbkwKBgQDOUG3N/RrFfoMRgCPgtqdOG6+PL8MIJ0cs\nPKdlDBXHqophfmRf1Pc/PDM9BRNy7pFZWLixaHIjVU2JadB3cIynPPuCCpOzh1xI\n6IHRr1bFEila/hOQxfhxsEjaW94AKqoqjFm843YzYwmvGyhSVargrDCf7mZLSXfN\nNZ07D5dz8QKBgQDRbUfQXD1ZBFfukmI4FO/bATQKwzzBl4fA9IayafuwUNE1YxXx\nELmjtlCOStyXO4OUmJ7buhiIlUggugz2MSVurBuiJX54GKnuxwQ5XdKDY3jMFqzU\n2mtPxTl0ZOB8sPcZr3I7zdO0dEjYXeyJ7+2DCeUWotJyQh6dv+hva9mcTQKBgGSV\nY6MshXPJhP7wOQ2iHxj+eG3XfD8qXxGbFIU4ChpI86Qqaacq/cuPfu993QiIdMZZ\ncdnUMOk2+lFHDEJe1cPnADtbCr1Y/c3xxPDEigoUG6NoAYPwcHqE1k/Wv/nW0xVh\nTZLAVm0hGKSNGfBiIafdautd3/NOgyDBxcD4jf8RAoGBAK5urPg17r1OrIUHB+Qp\nSZy8YWqKAwrapnbir0X8RmzORl5VIL2v7H1cMgjvLt3hoIDTY5/k/oenuPlikET+\ne/OVhapFR+AvxAXaYbAlYePTh6qNmrLIJe3cJU+ZoLaLMkfgg1wWEevIuOdu80rn\nB3E5KZs+wXUzftTM4WqiLnpP\n-----END PRIVATE KEY-----\n",
+  "client_email": "login-purchase@online-store-216918.iam.gserviceaccount.com",
+  "client_id": "108641441340501571816",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/login-purchase%40online-store-216918.iam.gserviceaccount.com"
+}

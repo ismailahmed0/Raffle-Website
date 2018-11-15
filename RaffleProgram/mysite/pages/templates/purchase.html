@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Purchase Ticket{% endblock %}
+
+{% block content %}
+
+
+Please enter your four-digit school ID and its password to purchase a raffle ticket!
+<br/>
+WARNING: Clicking the purchase button again while the system is still processing your request will result in you purchasing more raffle tickets by the amount of times you clicked it, until your money runs out!
+<form action="/purchase/" method="post"> {% csrf_token %}
+    <label for="username">School ID: </label>
+    <input id="username" type="text" name="username" value="{{ current_name }}">
+    <br/>
+    <label for="password">Password: </label>
+    <input id="password" type="password" content = "*" name="password" value="{{ current_name }}">
+    <br/>
+    <input type="submit" value="Purchase">
+    <br/>
+</form>
+
+<br/>
+{% if my_stuff %}
+    Your balance is ${{ my_stuff }}.00!
+    <br/>
+    Thank you for your purchase!
+
+{% endif %}
+
+{% if notmy_stuff %}
+    Insufficent Credit!
+
+{% endif %}
+
+{% if defnotmy_stuff %}
+    Incorrect username or password!
+
+{% endif %}
+{% if bad_input %}
+    Please enter both the username and password!
+
+{% endif %}
+
+<br/>
+
+
+{% endblock %}
