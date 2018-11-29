@@ -1,5 +1,5 @@
 # Web-Purchase-Server
-NOTICE: Please make sure to add the email address and its password that you would like to use to send the raffle ticket number.They are located on lines 95 and 123 on views.py in the pages folder in the second mysite folder.
+NOTICE: Please make sure to add the email address and its password that you would like to use to send the raffle ticket number. They are located on lines 95 and 123 on views.py in the pages folder in the second mysite folder. Also, trying to add money to the user's account wil not be successful as it has to be done through a seperate program. Do NOT expect to get your money back if you try to add your money to the user's account. You have to go into the money.html and replace the button code with your own.
 
 This is a program that will allow a user to login and purchase a raffle ticket. The cost will be one dollar. They can add money to their account on the money page. This is done on a webpage through a server on your computer. 
 
