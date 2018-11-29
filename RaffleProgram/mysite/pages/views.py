@@ -1,3 +1,21 @@
+'''
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+#####
+Ismail A Ahmed/Hanzala N Siddiqui
+views.py
+Version 4.0
+'''
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 import passlib
@@ -11,10 +29,8 @@ from cryptography.fernet import Fernet
 import hashlib
 from passlib.hash import sha256_crypt
 
-#server pass shows, encrypt takes too long, add get balance to admin program
-
 #key = Fernet.generate_key()
-lines1 = open('raffle_key.txt').readlines()  # clear list, close file?
+lines1 = open('raffle_key.txt').readlines()  #encrypted raffle number has a certain key that is required to decrypt it
 content1 = lines1[0]
 content1 = content1.strip('b').strip("'") #gets rid of the trash
 content1 = content1[:-2]
@@ -69,29 +85,29 @@ def Purchase(request):
             worked=rd()
             if worked=='True':
                 usermoney = moneyval[0]
-                del moneyval[:]
-                del userlist[:]
-                del lsttest[:]
+                del moneyval[:] #clears values in list for restart
+                del userlist[:] #clears values in list for restart
+                del lsttest[:] #clears values in list for restart
                 smtp_server_name = 'smtp.gmail.com'
                 port = '465'  # for secure messages
                 # port = '587' # for normal messages
 
-                sender = 'raffle-no-reply@chaparralstaracademy.com'
-                receiver = senderemail[0]+'@chaparralstaracademy.com'
+                sender = 'PUT YOUR USERNAME HERE@gmail.com'
+                receiver = senderemail[0]+'@gmail.com' #cause instructions on page tell not to add the @gmail, we automatically add it here, assuming they use gmail(which we can do this this is not for full professional use)
 
-                with open('raffle_numbers.txt') as baselines:
+                with open('raffle_numbers.txt') as baselines: #gets raffle numbers
                     lines = baselines.readlines()
-                content = lines[0]
+                content = lines[0] #gets only one raffle number from list, easiest way is to get the first value in list(0th index)
                 content0 = content.strip('b').strip("'")  # gets rid of the trash
-                content0 = content0[:-2]
+                content0 = content0[:-2] # gets rid of unnessary stuff
                 content0 = str.encode(content0)
 
-                plain_text = cipher_suite.decrypt(content0)
+                plain_text = cipher_suite.decrypt(content0) #decrypts raffle number
                 plain_text = str(plain_text)
                 plain_text = plain_text.strip('b').strip("'")  # gets rid of the trash
                 plain_text = ('Your raffle ticket number is: '+plain_text +'\n'+'\n'+'Thanks again for your purchase!\n'+'\n'+'Sincerely,'+'\n'+'\tThe Computer Science Team'+'\n'+'\n'+'Please do not reply to this message. This email is unmonitored. If you have any questions, please contact Howard Davis at howarddavis@chaparralstaracademy.com.')
 
-                newFile = open('raffle_bought.txt', 'a')
+                newFile = open('raffle_bought.txt', 'a') #stores raffles bought in text file for later use.
                 newFile.write(content)
                 newFile.close()
                 msg = MIMEText(plain_text)
@@ -104,30 +120,30 @@ def Purchase(request):
                     server = smtplib.SMTP('{}:{}'.format(smtp_server_name, port))
                     server.starttls()  # this is for secure reason
 
-                server.login(sender, "!MORE0money1")
+                server.login(sender, "PUT YOUR PASSWORD HERE")
                 server.send_message(msg)
                 server.quit()
 
-                with open('raffle_numbers.txt', 'w') as f:
+                with open('raffle_numbers.txt', 'w') as f: #writes all the raffle numbers into the text file with the exception of the one that was bought
                     f.writelines(lines[1:])
                 del senderemail[:]
-                return render(request, "purchase.html", {"my_stuff": usermoney})
+                return render(request, "purchase.html", {"my_stuff": usermoney}) #GO to the html file in the templates folder for this
                 #return HttpResponseRedirect('/about/')
             elif worked=='False':
-                del moneyval[:]
-                del userlist[:]
-                del lsttest[:]
-                return render(request, "purchase.html", {"notmy_stuff": 'Insufficient Credit!'})
+                del moneyval[:] #restarts the list for next purchase
+                del userlist[:] #restarts the list for next purchase
+                del lsttest[:] #restarts the list for next purchase
+                return render(request, "purchase.html", {"notmy_stuff": 'Insufficient Credit!'}) #GO to the html file in the templates folder for this
             else:
-                del moneyval[:]
-                del userlist[:]
-                del lsttest[:]
-                return render(request, "purchase.html", {"defnotmy_stuff": 'Username or password incorrect!'})
+                del moneyval[:] #restarts the list for next purchase
+                del userlist[:] #restarts the list for next purchase
+                del lsttest[:] #restarts the list for next purchase
+                return render(request, "purchase.html", {"defnotmy_stuff": 'Username or password incorrect!'}) #GO to the html file in the templates folder for this
         else:
-            del moneyval[:]
-            del userlist[:]
-            del lsttest[:]
-            return render(request, "purchase.html", {"bad_input": 'Please enter both the username and password!'})
+            del moneyval[:]  #restarts the list for next purchase
+            del userlist[:] #restarts the list for next purchase
+            del lsttest[:] #restarts the list for next purchase
+            return render(request, "purchase.html", {"bad_input": 'Please enter both the username and password!'}) #GO to the html file in the templates folder for this
 
 
 
@@ -137,10 +153,10 @@ def Purchase(request):
 
     return render(request, 'purchase.html', {'form': form})
 
-def check_password(hashed_password, user_password):
+def check_password(hashed_password, user_password): #checks to see if username entered matches the username in google sheet
     password, salt = hashed_password.split(':')
     return password == hashlib.sha256(salt.encode() + user_password.encode()).hexdigest()
-def check_password1(hashed_password, user_password):
+def check_password1(hashed_password, user_password): #checks to see if password entered matches the password in google sheet
     password, salt = hashed_password.split(':')
     return password == hashlib.sha256(salt.encode() + user_password.encode()).hexdigest()
 
@@ -181,7 +197,7 @@ def rd(*kargs):
 
     goodhash()
 
-    count = 2
+    count = 2 #2 is the row the first salt hash usernames/passwords are stored
     file = (username + ' ' + password)  # gets the username and password client entered and adds space in between like in lsttest list
     if file not in lsttest:
         # showinfo("Error", "Incorrect username or password!")
@@ -208,7 +224,7 @@ def rd(*kargs):
 
 
                     sheet.update_cell(count, 3, userbalance)
-                    senderemail.append(username)
+                    senderemail.append(username) #puts the username inside of list so that it can be sent in the Purchase function
                     # showinfo("Purchase Succsessful","Your Balance is $" + str(userbalance) + ".00!")
                     return 'True'
                 else:
