@@ -6,7 +6,7 @@ This is a program that will allow a user to login and purchase a raffle ticket. 
 Required Modules: django, passlib, gspread, ouath2client, cryptography, and hashlib.
 Place the code.py folder(un-zipped) into Windows (C:). Open command line or powershell from the start menu and cd to the folder your manage.py file is in. Then, type python manage.py runserver in the command line. After that, type localhost:8000 into the url entry  in your web browser and hit enter.
 
-Good websites to connect python with google sheets: https://www.twilio.com/blog/2017/02/an-easy-way-to-read-and-write-to-a-google-spreadsheet-in-python.html (This one doesn't say it, but choose Service accoutnt key when making credientials), https://www.makeuseof.com/tag/read-write-google-sheets-python/
+Good websites to connect python with google sheets: https://www.twilio.com/blog/2017/02/an-easy-way-to-read-and-write-to-a-google-spreadsheet-in-python.html (Twilio doesn't say it, but choose Service accoutnt key when making credientials), https://www.makeuseof.com/tag/read-write-google-sheets-python/
 
 Good video to download django: https://www.youtube.com/watch?v=yyt3tQYW3g0
 
