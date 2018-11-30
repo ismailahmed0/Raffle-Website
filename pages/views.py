@@ -88,12 +88,12 @@ def Purchase(request):
                 del moneyval[:] #clears values in list for restart
                 del userlist[:] #clears values in list for restart
                 del lsttest[:] #clears values in list for restart
-                smtp_server_name = 'smtp.gmail.com'
-                port = '465'  # for secure messages
+                #smtp_server_name = 'smtp.gmail.com'
+                #port = '465'  # for secure messages
                 # port = '587' # for normal messages
 
-                sender = 'PUT YOUR USERNAME HERE@gmail.com'
-                receiver = senderemail[0]+'@gmail.com' #cause instructions on page tell not to add the @gmail, we automatically add it here, assuming they use gmail(which we can do this this is not for full professional use)
+                #sender = 'PUT YOUR USERNAME HERE@gmail.com'
+                #receiver = senderemail[0]+'@gmail.com' #cause instructions on page tell not to add the @gmail, we automatically add it here, assuming they use gmail(which we can do this this is not for full professional use)
 
                 with open('raffle_numbers.txt') as baselines: #gets raffle numbers
                     lines = baselines.readlines()
@@ -105,24 +105,24 @@ def Purchase(request):
                 plain_text = cipher_suite.decrypt(content0) #decrypts raffle number
                 plain_text = str(plain_text)
                 plain_text = plain_text.strip('b').strip("'")  # gets rid of the trash
-                plain_text = ('Your raffle ticket number is: '+plain_text +'\n'+'\n'+'Thanks again for your purchase!\n'+'\n'+'Sincerely,'+'\n'+'\tThe Computer Science Team'+'\n'+'\n'+'Please do not reply to this message. This email is unmonitored. If you have any questions, please contact Howard Davis at howarddavis@chaparralstaracademy.com.')
+                plain_text = ('Your raffle ticket number is: '+plain_text +'\n'+'\n'+'Thanks again for your purchase!\n'+'\n'+'Sincerely,'+'\n'+'\tThe Computer Science Team'+'\n'+'\n'+'Please do not reply to this message. This email is unmonitored. If you have any questions, please contact CONTACT NAME at CONTACT EMAIL@gmail.com.')
 
                 newFile = open('raffle_bought.txt', 'a') #stores raffles bought in text file for later use.
                 newFile.write(content)
                 newFile.close()
-                msg = MIMEText(plain_text)
-                msg['From'] = sender
-                msg['To'] = receiver
-                msg['Subject'] = 'Raffle Ticket'
-                if port == '465':
-                    server = smtplib.SMTP_SSL('{}:{}'.format(smtp_server_name, port))
-                else:
-                    server = smtplib.SMTP('{}:{}'.format(smtp_server_name, port))
-                    server.starttls()  # this is for secure reason
+                #msg = MIMEText(plain_text)
+                #msg['From'] = sender
+                #msg['To'] = receiver
+                #msg['Subject'] = 'Raffle Ticket'
+                #if port == '465':
+                #    server = smtplib.SMTP_SSL('{}:{}'.format(smtp_server_name, port))
+                #else:
+                #    server = smtplib.SMTP('{}:{}'.format(smtp_server_name, port))
+                #    server.starttls()  # this is for secure reason
 
-                server.login(sender, "PUT YOUR PASSWORD HERE")
-                server.send_message(msg)
-                server.quit()
+                #server.login(sender, "PUT YOUR PASSWORD HERE")
+                #server.send_message(msg)
+                #server.quit()
 
                 with open('raffle_numbers.txt', 'w') as f: #writes all the raffle numbers into the text file with the exception of the one that was bought
                     f.writelines(lines[1:])
