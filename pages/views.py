@@ -146,7 +146,6 @@ def Purchase(request):
             return render(request, "purchase.html", {"bad_input": 'Please enter both the username and password!'}) #GO to the html file in the templates folder for this
 
 
-
     # if a GET (or any other method) we'll create a blank form
     else:
         form = NameForm()
