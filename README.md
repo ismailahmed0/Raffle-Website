@@ -10,4 +10,4 @@ Good websites to connect python with google sheets: https://www.twilio.com/blog/
 
 Good video to download django: https://www.youtube.com/watch?v=yyt3tQYW3g0
 
-Good video to host raffle program on PythonAnywhere: https://www.youtube.com/watch?v=Y4c4ickks2A
+Good video to see how to host raffle program on PythonAnywhere: https://www.youtube.com/watch?v=Y4c4ickks2A
